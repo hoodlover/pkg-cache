@@ -7,7 +7,9 @@ set "STAGE_DIR=%LOCALAPPDATA%\OPS-BASE_Install"
 set "MSI_FILE=%STAGE_DIR%\OPS-BASE.msi"
 set "SETTINGS_DIR=%APPDATA%\OPS-BASE"
 set "SETTINGS_FILE=%SETTINGS_DIR%\settings.json"
-set "DEFAULT_DATA_DIR=%USERPROFILE%\Documents\OPS-BASE"
+for /f "delims=" %%D in ('powershell -NoProfile -Command "[Environment]::GetFolderPath('MyDocuments')"') do set "DOCS_DIR=%%D"
+if "%DOCS_DIR%"=="" set "DOCS_DIR=%USERPROFILE%\Documents"
+set "DEFAULT_DATA_DIR=%DOCS_DIR%\OPS-BASE"
 set "KEEP_INSTALLER=0"
 
 mkdir "%SETTINGS_DIR%" 2>nul
