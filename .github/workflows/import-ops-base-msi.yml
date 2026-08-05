@@ -1,0 +1,30 @@
+name: Import signed OPS-BASE MSI
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: OPS-BASE-import-msi
+          path: incoming
+          repository: hoodlover/OPS-BASE
+          run-id: '30970964489'
+          github-token: ${{ secrets.OPS_BASE_TRANSFER_TOKEN }}
+      - name: Publish signed MSI
+        shell: bash
+        run: |
+          set -euo pipefail
+          src="$(find incoming -type f -name 'OPS-BASE-*.msi' | head -n 1)"
+          test -n "$src"
+          cp "$src" Hapag-IDT-OPS-Base.msi
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add Hapag-IDT-OPS-Base.msi
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Publish signed OPS-BASE 26.102.171"
+          git push
