@@ -1,8 +1,8 @@
 {
-  "version": "42.161.356",
-  "msi_url": "https://github.com/hoodlover/pkg-cache/raw/main/Hapag-IDT-OPS-Base.msi?v=42.161.356",
-  "sha256": "56236215C31333D18234308FA6CF636CFBCE6AC201E352CDA024469207D7983E",
-  "published_at": "2026-08-28T13:47:17.4594787Z",
-  "source_run": "33176454642",
-  "source_commit": "759d9acaaeacd06905e3316216bc662d43662158"
+  "version": "42.162.358",
+  "msi_url": "https://github.com/hoodlover/pkg-cache/raw/main/Hapag-IDT-OPS-Base.msi?v=42.162.358",
+  "sha256": "3A90EF325A1B5D8789401840824F72E6114C46005FE5BAEAFE2237A8CF12600F",
+  "published_at": "2026-08-28T14:31:38.3833692Z",
+  "source_run": "33179630902",
+  "source_commit": "e3539a4aefe466ebd49ce8bc240af2b4c05f58ec"
 }
